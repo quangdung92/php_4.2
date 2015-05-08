@@ -21,3 +21,10 @@ Route::post('user/login', array('before'=>'csrf', 'uses'=>'UserController@login'
 //User create
 Route::get('register', 'UserController@index');
 Route::post('user/create', array('before'=>'csrf', 'uses'=>'UserController@create'));
+
+//Post
+Route::get('post','PostController@index');
+Route::post('post/create', array('before'=>'csrf', 'uses'=>'PostController@create'));
+
+//Logout
+Route::get('logout', 'UserController@destroy');

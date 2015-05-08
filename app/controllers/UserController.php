@@ -58,7 +58,7 @@ class UserController extends \BaseController {
 		]);
 		Log::info(Auth::user());
 		if ($results){
-			return Redirect::to('/') -> with('msg','You have logged_in!');
+			return Redirect::to('/post') -> with('msg','You have logged_in!');
 		} else {
 			return Redirect::to('/') -> with('msg','User does not exist!');
 		}
@@ -107,9 +107,10 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
-		//
+		Auth::logout();
+		return Redirect::to('/');
 	}
 
 }
