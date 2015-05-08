@@ -1,4 +1,5 @@
 <?php
+use League\Csv\Reader;
 
 class DatabaseSeeder extends Seeder {
 
@@ -9,9 +10,40 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
-		Eloquent::unguard();
-
-		// $this->call('UserTableSeeder');
+		$this->call('UserTableSeeder');
+        $this->command->info('User table seeded!');
+		
+		//PostTable
+		$this->call('PostTableSeeder');
+		$this->command->info('User table seeded!');
 	}
+}
+class UserTableSeeder extends Seeder {
 
+    public function run()
+    {
+		User::create([
+			'username' => 'sa1234',
+			'email' => 'sa1234@gmail.com',
+			'password' => Hash::make('sa12345')
+		]);
+    }
+}
+class PostTableSeeder extends Seeder {
+
+    public function run()
+    {
+    	$reader = Reader::createFromPath(public_path().'/test_user.csv');
+		$posts = $reader->setOffset(1)->fetchAll();
+		foreach($posts as $key => $row) {
+			$this->command->info($row[0]);
+			if (!empty($row[0])) {
+				Post::create([
+					'user_id' => $row[1],
+					'status' => $row[0],
+				]);
+			}
+			
+		}
+    }
 }
