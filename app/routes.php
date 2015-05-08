@@ -28,3 +28,7 @@ Route::post('post/create', array('before'=>'csrf', 'uses'=>'PostController@creat
 
 //Logout
 Route::get('logout', 'UserController@destroy');
+
+//Upload
+Route::get('upload', 'ImageController@index');
+Route::post('upload/create', array('before'=>'csrf', 'uses'=>'ImageController@create'));

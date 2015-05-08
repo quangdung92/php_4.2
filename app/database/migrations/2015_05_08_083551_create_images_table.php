@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateImageTable extends Migration {
+class CreateImagesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -32,7 +32,7 @@ class CreateImageTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('image');
+		Schema::drop('images');
 	}
 
 }
