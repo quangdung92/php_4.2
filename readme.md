@@ -10,7 +10,7 @@
 
 ## For ubuntu users
 
-1. Install composer
+1. Install composer:
 	Run Terminal, or press Ctrl + Alt + T, go to app folder with "cd path_to_your/php_4.2" then run "composer install". 
 
 2. Install migrate to create database:
@@ -19,7 +19,7 @@
 3. Run seed to get some values:
 	php artisan db:seed 
 
-4. Run php server
+4. Run php server:
 	php artisan serve
 
 5. Now, go to this link: "http://localhost:8000" in browser.
