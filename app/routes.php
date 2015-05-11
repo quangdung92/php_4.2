@@ -32,3 +32,6 @@ Route::get('logout', 'UserController@destroy');
 //Upload
 Route::get('upload', 'ImageController@index');
 Route::post('upload/create', array('before'=>'csrf', 'uses'=>'ImageController@create'));
+
+//Oauth
+Route::get('oauth','OauthController@index');

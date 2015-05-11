@@ -5,7 +5,7 @@
 <div class="row" align="center">
 	{{ Form::open(array('url' => 'user/login', 'method' => 'POST')) }}
 		{{ Form::token() }}
-		<h2>Login!</h2>
+		<h2>{{ Lang::get('messages.login.title') }}</h2>
 		{{ Session::get('msg') }}
 		<div class="medium-4 medium-centered columns">
 			{{ Form::label('email', 'Email') }}
@@ -17,7 +17,7 @@
 		</div>
 		<div class="row">
 			<div class="medium-4 medium-centered columns">
-				{{ Form::submit('Login', array('class'=>'button tiny')) }}
+				{{ Form::submit(Lang::get('messages.login.button'), array('class'=>'button tiny')) }}
 			</div>
 		</div>
 	{{ Form::close() }}

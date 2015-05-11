@@ -4,7 +4,7 @@
 	<div class="row" align="center">
 		{{ Form::open(array('url' => 'user/create', 'method' => 'POST', 'id' => 'form_register')) }}
 		{{ Form::token() }}
-		<h2>Register</h2>
+		<h2>{{ Lang::get('messages.register.title') }}</h2>
 		{{ Session::get('msg') }}
 		<div class="medium-4 medium-centered columns">
 			{{ Form::label('name','Username') }}
@@ -20,7 +20,7 @@
 		</div>
 		<div class="row">
 			<div class="medium-4 medium-centered columns">
-				{{ Form::submit('Signup', array('class'=>'button tiny')) }}
+				{{ Form::submit(Lang::get('messages.register.button'), array('class'=>'button tiny')) }}
 				<a href="/"> Back </a>
 			</div>
 		</div>

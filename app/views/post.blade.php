@@ -7,12 +7,12 @@
 		<h2>{{ $title }}</h2>
 		{{ Session::get('msg') }}
 		<div class="medium-4 medium-centered columns">
-			{{ Form::label('status', 'Status') }}
+			{{ Form::label('status', Lang::get('messages.post.status')) }}
 			{{ Form::textarea('status') }}
 		</div>
 		<div class="row">
 			<div class="medium-4 medium-centered columns">
-				{{ Form::submit('Post', array('class'=>'button small')) }}
+				{{ Form::submit(Lang::get('messages.post.button'), array('class'=>'button small')) }}
 			</div>
 		</div>
 	{{ Form::close() }}

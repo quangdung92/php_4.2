@@ -35,7 +35,7 @@ class UserController extends \BaseController {
 			'email' => Request::get('email'),
 			'password' => Hash::make(Request::get('password')),
 		]);
-			return Redirect::to('register')-> with('msg','Working done!');
+			return Redirect::to('register')-> with('msg', Lang::get('messages.register.sucess'));
 		}
 	}
 
@@ -58,9 +58,9 @@ class UserController extends \BaseController {
 		]);
 		Log::info(Auth::user());
 		if ($results){
-			return Redirect::to('/post') -> with('msg','You have logged_in!');
+			return Redirect::to('/post') -> with('msg', Lang::get('messages.login.sucess'));
 		} else {
-			return Redirect::to('/') -> with('msg','User does not exist!');
+			return Redirect::to('/') -> with('msg', Lang::get('messages.login.error'));
 		}
 	}
 

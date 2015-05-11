@@ -34,25 +34,36 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{ url('/') }}">{{ Lang::get('messages.home.title')}}</a></li>
 				</ul>
 				@if (Auth::user())
 					<ul class="nav navbar-nav">
-						<li><a href="{{ url('/post') }}">Post</a></li>
+						<li><a href="{{ url('/post') }}">{{ Lang::get('messages.home.post') }}</a></li>
 					</ul>
 					<ul class="nav navbar-nav">
-						<li><a href="{{ url('/upload') }}">Upload</a></li>
+						<li><a href="{{ url('/upload') }}">{{ Lang::get('messages.home.upload') }}</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/oauth') }}">Twitter</a></li>
 					</ul>
 				@endif
 				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Languages<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/') }}">English</a></li>
+							<li><a href="{{ url('/') }}">Japan</a></li>
+							<li><a href="{{ url('/') }}">France</a></li>
+						</ul>
+					</li>
 					@if (Auth::guest())
-						<li><a href="{{ url('/') }}">Login</a></li>
-						<li><a href="{{ url('/register') }}">Register</a></li>
+						<li><a href="{{ url('/') }}">{{ Lang::get('messages.home.login') }}</a></li>
+						<li><a href="{{ url('/register') }}">{{ Lang::get('messages.home.register') }}</a></li>
 					@else
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->username }} <span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/logout') }}">Logout</a></li>
+								<li><a href="{{ url('/logout') }}">{{ Lang::get('messages.home.logout') }}</a></li>
 							</ul>
 						</li>
 					@endif

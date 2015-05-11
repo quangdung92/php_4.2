@@ -1,43 +1,35 @@
 <?php
 
-class PostController extends \BaseController {
+class OauthController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /post
+	 * GET /oauth
 	 *
 	 * @return Response
 	 */
 	public function index()
 	{
-		$current_user = Auth::user();
-		$title = Lang::get('messages.post.title');
-		if ($current_user) {
-			$posts = User::find($current_user['id'])->post()->get();
-			return View::make('post')->with(array('title'=>$title, 'posts'=>$posts));
-		} else {
-			return "Login first!";
-		}
+		$tw = OAuth::consumer( 'Twitter' );
+		$reqToken = $tw->requestRequestToken();
+		$url = $tw->getAuthorizationUri(array('oauth_token' => $reqToken->getRequestToken()));
+		return Redirect::to( (string)$url );
 	}
 
 	/**
 	 * Show the form for creating a new resource.
-	 * GET /post/create
+	 * GET /oauth/create
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-		Post::create([
-			'user_id' => Auth::user()['id'],
-			'status' => Request::get('status')
-		]);
-		return Redirect::to('post');
+		//
 	}
 
 	/**
 	 * Store a newly created resource in storage.
-	 * POST /post
+	 * POST /oauth
 	 *
 	 * @return Response
 	 */
@@ -48,7 +40,7 @@ class PostController extends \BaseController {
 
 	/**
 	 * Display the specified resource.
-	 * GET /post/{id}
+	 * GET /oauth/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -60,7 +52,7 @@ class PostController extends \BaseController {
 
 	/**
 	 * Show the form for editing the specified resource.
-	 * GET /post/{id}/edit
+	 * GET /oauth/{id}/edit
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -72,7 +64,7 @@ class PostController extends \BaseController {
 
 	/**
 	 * Update the specified resource in storage.
-	 * PUT /post/{id}
+	 * PUT /oauth/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
@@ -84,7 +76,7 @@ class PostController extends \BaseController {
 
 	/**
 	 * Remove the specified resource from storage.
-	 * DELETE /post/{id}
+	 * DELETE /oauth/{id}
 	 *
 	 * @param  int  $id
 	 * @return Response
