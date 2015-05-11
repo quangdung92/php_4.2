@@ -23,6 +23,14 @@ return array(
 					"button"	=> "Post",
 					"status"	=> "Status"	
 				),
+	'lang' => 'Languages',
+	
+	'upload' => array(
+					"title"		=> "Upload",
+					"input"		=> "Input file",
+					"button"	=> "Post",
+					"sucess"	=> "Upload Complete!"
+					),
 	'home' => array(
 					"title" 	=> "Home",
 					"login" 	=> "Login",

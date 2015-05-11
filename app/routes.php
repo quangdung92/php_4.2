@@ -35,3 +35,6 @@ Route::post('upload/create', array('before'=>'csrf', 'uses'=>'ImageController@cr
 
 //Oauth
 Route::get('oauth','OauthController@index');
+
+//Languages
+Route::get('/{lang}', 'HomeController@setLang');

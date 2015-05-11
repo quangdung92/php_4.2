@@ -49,11 +49,11 @@
 				@endif
 				<ul class="nav navbar-nav navbar-right">
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Languages<span class="caret"></span></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Lang::get('messages.lang') }}<span class="caret"></span></a>
 						<ul class="dropdown-menu" role="menu">
-							<li><a href="{{ url('/') }}">English</a></li>
-							<li><a href="{{ url('/') }}">Japan</a></li>
-							<li><a href="{{ url('/') }}">France</a></li>
+							<li><a href="{{ url('/en') }}" lang="en">English</a></li>
+							<li><a href="{{ url('/ja') }}" lang="ja">Japan</a></li>
+							<li><a href="{{ url('/fr') }}" lang="fr">France</a></li>
 						</ul>
 					</li>
 					@if (Auth::guest())

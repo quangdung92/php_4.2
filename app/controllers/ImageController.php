@@ -35,7 +35,7 @@ class ImageController extends \BaseController {
 			'origilnal_filename' => $file->getClientOriginalName(),
 		]);
 		Log::info($filename);
-		return Redirect::to('upload')->with('msg','Uploaded');
+		return Redirect::to('upload')->with('msg', Lang::get('messages.upload.sucess'));
 	}
 
 	/**

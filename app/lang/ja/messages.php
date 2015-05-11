@@ -22,7 +22,15 @@ return array(
 					"title"		=> "ポストステータス",
 					"button"	=> "ポスト",
 					"status"	=> "ステータス"	
-				),					
+				),
+	'lang' => '言語',
+	
+	'upload' => array(
+					"title"		=> "アップロード",
+					"input"		=> "入力ファイル",
+					"button"	=> "ポスト",
+					"sucess"	=> "完全アップロード!"
+					),				
 	'home' => array(
 					"title" 	=> "ホーム",
 					"login" 	=> "ログイン",

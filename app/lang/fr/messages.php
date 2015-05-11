@@ -23,6 +23,14 @@ return array(
 					"button"	=> "Poste",
 					"status"	=> "Statut"	
 				),
+	'lang' => 'Langues',	
+		
+	'upload' => array(
+					"title"		=> "Télécharger",
+					"input"		=> "Le fichier d'entrée",
+					"button"	=> "Poste",
+					"sucess"	=> "Télécharge complète!"
+					),						
 	'home' => array(
 					"title" 	=> "Maison",
 					"login" 	=> "Se connecter",

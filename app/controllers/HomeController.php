@@ -19,5 +19,11 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
-
+	
+	public function setLang($lang)
+	{
+		Session::put('lang', $lang);
+		Log::info($lang);
+		return Redirect::back();
+	}
 }

@@ -9,16 +9,16 @@
 		<div class="medium-4 medium-centered columns">
 			<fieldset>
 				<legend>
-					Upload
+					{{ Lang::get('messages.upload.title') }}
 				</legend>
-				<label>Input file
+				<label>{{ Lang::get('messages.upload.input') }}
 					<input type="file" name="photo">
 				</label>
 			</fieldset>
 		</div>
 		<div class="medium-4 medium-centered columns">
 			<button type="submit" class="btn btn-primary">
-				Post
+				{{ Lang::get('messages.upload.button') }}
 			</button>
 		</div>
 	</form>
