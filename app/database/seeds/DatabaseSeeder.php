@@ -36,7 +36,6 @@ class PostTableSeeder extends Seeder {
     	$reader = Reader::createFromPath(public_path().'/test_user.csv');
 		$posts = $reader->setOffset(1)->fetchAll();
 		foreach($posts as $key => $row) {
-			$this->command->info($row[0]);
 			if (!empty($row[0])) {
 				Post::create([
 					'user_id' => $row[1],

@@ -17,9 +17,9 @@
 			</fieldset>
 		</div>
 		<div class="small-4 small-centered columns">
-				<button type="submit" class="btn btn-primary">
-					Post
-				</button>
+			<button type="submit" class="btn btn-primary">
+				Post
+			</button>
 		</div>
 	</form>
 </div>

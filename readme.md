@@ -1,4 +1,4 @@
-## Laravel PHP Framework
+## Laravel PHP Framework 4.2 
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
@@ -6,20 +6,26 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, and caching.
+## Instructions
 
-Laravel aims to make the development process a pleasing one for the developer without sacrificing application functionality. Happy developers make the best code. To this end, we've attempted to combine the very best of what we have seen in other web frameworks, including frameworks implemented in other languages, such as Ruby on Rails, ASP.NET MVC, and Sinatra.
+## For ubuntu users
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+1. Install composer
+	Run Terminal, or press Ctrl + Alt + T, go to app folder with "cd path_to_your/php_4.2" then run "composer install". 
 
-## Official Documentation
+2. Install migrate to create database:
+	php artisan migrate:reset && php artisan migrate
 
-Documentation for the entire framework can be found on the [Laravel website](http://laravel.com/docs).
+3. Run seed to get some values:
+	php artisan db:seed 
 
-### Contributing To Laravel
+4. Run php server
+	php artisan serve
 
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
+5. Now, go to this link: "http://localhost:8000" in browser.
+	You can login with test user:
+		email: sa1234@gmail.com
+		password: sa12345
+	Have fun !!
 
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+##

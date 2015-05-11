@@ -31,7 +31,7 @@ class ImageController extends \BaseController {
 		Image::create([
 			'user_id' => Auth::user()['id'],
 			'filename' => $file->getFilename().'.'.$extension,
-			'mine' => $file->getClientMimeType(),
+			'mime' => $file->getClientMimeType(),
 			'origilnal_filename' => $file->getClientOriginalName(),
 		]);
 		Log::info($filename);
