@@ -19,7 +19,7 @@ class CreateImagesTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->string('filename');
 			$table->string('origilnal_filename');
-			$table->string('mine');
+			$table->string('mime');
 			$table->timestamps();
 		});
 	}

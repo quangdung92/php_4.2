@@ -6,19 +6,19 @@
 		{{ Form::token() }}
 		<h2>{{ $title }}</h2>
 		{{ Session::get('msg') }}
-		<div class="small-4 small-centered columns">
+		<div class="medium-4 medium-centered columns">
 			{{ Form::label('status', 'Status') }}
 			{{ Form::textarea('status') }}
 		</div>
 		<div class="row">
-			<div class="small-4 small-centered columns">
+			<div class="medium-4 medium-centered columns">
 				{{ Form::submit('Post', array('class'=>'button small')) }}
 			</div>
 		</div>
 	{{ Form::close() }}
 	<br />
 	<div class="row" align="center" style="margin-top: 20px">
-		<div class="small-4 small-centered columns">
+		<div class="medium-4 medium-centered columns">
 			<ul class="pricing-table">
 				<li class="title">
 					Post
