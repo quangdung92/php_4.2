@@ -11,7 +11,8 @@
 ## For ubuntu users
 
 1. Install composer:
-	Run Terminal, or press Ctrl + Alt + T, go to app folder with "cd path_to_your/php_4.2" then run "composer install". 
+	First: You must get Composer: "https://getcomposer.org/download/"
+	Then: Run Terminal, or press Ctrl + Alt + T, go to app folder with "cd path_to_your/php_4.2" then run "composer install". 
 
 2. Install migrate to create database:
 	php artisan migrate:reset && php artisan migrate
