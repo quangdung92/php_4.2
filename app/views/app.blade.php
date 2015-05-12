@@ -43,11 +43,14 @@
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('/upload') }}">{{ Lang::get('messages.home.upload') }}</a></li>
 					</ul>
-					<ul class="nav navbar-nav">
-						<li><a href="{{ url('/oauth/twitter') }}">Twitter</a></li>
-					</ul>
-					<ul class="nav navbar-nav">
-						<li><a href="{{ url('/oauth/facebook') }}">Facebook</a></li>
+					<ul class="nav navbar-nav navbar-left">
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Feeds<span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+							<li><a href="{{ url('/oauth/twitter') }}">Twitter</a></li>
+							<li><a href="{{ url('/oauth/facebook') }}">Facebook</a></li>
+						</ul>
+					</li>
 					</ul>
 				@endif
 				<ul class="nav navbar-nav navbar-right">
@@ -82,6 +85,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 	<script src="/javascripts/jquery.validate.js"></script>
 	<script src="/javascripts/register_form.js"></script>
+	<script src="/javascripts/oauth.js"></script>
 	<script src="/javascripts/jquery.validate.min.js"></script>
 </body>
 </html>

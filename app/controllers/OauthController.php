@@ -23,6 +23,7 @@ class OauthController extends \BaseController {
 			$tw->requestAccessToken($token, $verify);
 			$tweets = json_decode( $tw->request( 'statuses/user_timeline.json' ), true );
 			Session::put('tweets', $tweets);
+			Session::forget('feeds');
 			return Redirect::to('oauth/status');
 		} else {
 			$tw = OAuth::consumer( 'Twitter', 'http://localhost:8000/oauth/twitter' );
@@ -41,6 +42,7 @@ class OauthController extends \BaseController {
 			$fb->requestAccessToken($code);
 			$feeds = json_decode( $fb->request( '/me?fields=statuses.limit(5),picture' ), true );
 			Session::put('feeds', $feeds);
+			Session::forget('tweets');
 			return Redirect::to('oauth/status');
 		} else {
 			$fb = OAuth::consumer('Facebook', 'http://localhost:8000/oauth/facebook');
@@ -67,9 +69,9 @@ class OauthController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function get_token()
 	{
-		//
+		return Response::json(array('token' => 'Steve'));
 	}
 
 	/**

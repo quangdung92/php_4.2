@@ -10,6 +10,7 @@ class ImageController extends \BaseController {
 	 */
 	public function index()
 	{
+		$image = User::find(Auth::user()['id'])->image()->get();
 		return View::make('upload/image');
 	}
 
