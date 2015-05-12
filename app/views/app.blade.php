@@ -44,7 +44,10 @@
 						<li><a href="{{ url('/upload') }}">{{ Lang::get('messages.home.upload') }}</a></li>
 					</ul>
 					<ul class="nav navbar-nav">
-						<li><a href="{{ url('/oauth') }}">Twitter</a></li>
+						<li><a href="{{ url('/oauth/twitter') }}">Twitter</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/oauth/facebook') }}">Facebook</a></li>
 					</ul>
 				@endif
 				<ul class="nav navbar-nav navbar-right">

@@ -34,7 +34,9 @@ Route::get('upload', 'ImageController@index');
 Route::post('upload/create', array('before'=>'csrf', 'uses'=>'ImageController@create'));
 
 //Oauth
-Route::get('oauth','OauthController@index');
+Route::get('oauth/twitter','OauthController@twitter');
+Route::get('oauth/facebook','OauthController@facebook');
+Route::get('oauth/status', 'OauthController@status');
 
 //Languages
 Route::get('/{lang}', 'HomeController@setLang');
