@@ -30,7 +30,13 @@ return array(
 					"input"		=> "Le fichier d'entrée",
 					"button"	=> "Poste",
 					"sucess"	=> "Télécharge complète!"
-					),						
+					),
+	'profile' => array(
+					"link"		=> "profil",
+					"title"		=> "mettre à jour",
+					"button"	=> "mettre à jour",
+					),
+																
 	'home' => array(
 					"title" 	=> "Maison",
 					"login" 	=> "Se connecter",

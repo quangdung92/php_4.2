@@ -31,6 +31,13 @@ return array(
 					"button"	=> "Post",
 					"sucess"	=> "Upload Complete!"
 					),
+					
+	'profile' => array(
+					"link"		=> "profile",
+					"title"		=> "Update",
+					"button"	=> "Update",
+					),
+										
 	'home' => array(
 					"title" 	=> "Home",
 					"login" 	=> "Login",

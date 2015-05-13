@@ -22,18 +22,15 @@ class UserController extends \BaseController {
 	public function create()
 	{
 		$all = 	Request::all();
-		$rules = array(
-			'email' => 'required|unique:users',
-		);
-		$vali = Validator::make($all, $rules);
+		$vali = $this->validate($all);
 		if ($vali->fails()) {
 			$messages = $vali->messages();
 			return Redirect::to('register')-> with('msg',$messages ->first('email'));
 		} else {
 		User::create([
-			'username' => Request::get('name'),
-			'email' => Request::get('email'),
-			'password' => Hash::make(Request::get('password')),
+			'username' => $all['name'],
+			'email' => $all['email'],
+			'password' => Hash::make($all['password']),
 		]);
 			return Redirect::to('register')-> with('msg', Lang::get('messages.register.sucess'));
 		}
@@ -45,9 +42,38 @@ class UserController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function profile()
 	{
-		//
+		return View::make('profile')->with(array('current_user' => Auth::user()));
+	}
+	
+	public function update()
+	{
+		$all = 	Request::all();
+		if ($all['email'] == Auth::user()['email']) {
+			DB::table('users')
+	            ->where('id', Auth::user()['id'])
+	            ->update(array(
+	            				'username' => $all['name'], 
+	            				'password' => Hash::make($all['password'])
+							));
+			return Redirect::to('profile')-> with('msg', Lang::get('messages.register.sucess'));
+		} else {
+			$vali = $this->validate($all);
+			if ($vali->fails()) {
+				$messages = $vali->messages();
+				return Redirect::to('profile')-> with('msg', $messages ->first('email'));
+			} else {
+				DB::table('users')
+	            ->where('id', Auth::user()['id'])
+	            ->update(array(
+	            				'username' => $all['name'], 
+	            				'email' => $all['email'],
+	            				'password' => Hash::make($all['password'])
+							));
+			return Redirect::to('profile')-> with('msg', Lang::get('messages.register.sucess'));
+			}
+		}
 	}
 	
 	public function login()
@@ -95,10 +121,6 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
-	{
-		//
-	}
 
 	/**
 	 * Remove the specified resource from storage.
@@ -111,6 +133,14 @@ class UserController extends \BaseController {
 	{
 		Auth::logout();
 		return Redirect::to('/');
+	}
+	
+	
+	public static function validate($data)
+	{
+		return Validator::make($data, [
+			'email' => 'required|email|max:255|unique:users'
+		]);
 	}
 
 }

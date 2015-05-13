@@ -30,7 +30,14 @@ return array(
 					"input"		=> "入力ファイル",
 					"button"	=> "ポスト",
 					"sucess"	=> "完全アップロード!"
-					),				
+					),		
+					
+	'profile' => array(
+					"link"		=> "プロフィール",
+					"title"		=> "アップデート",
+					"button"	=> "アップデート",
+					),		
+						
 	'home' => array(
 					"title" 	=> "ホーム",
 					"login" 	=> "ログイン",

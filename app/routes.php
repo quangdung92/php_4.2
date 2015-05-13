@@ -18,6 +18,10 @@ Route::get('/', function()
 //User login
 Route::post('user/login', array('before'=>'csrf', 'uses'=>'UserController@login'));
 
+//profile
+Route::get('profile', 'UserController@profile');
+Route::post('profile/update', array('before'=>'csrf', 'uses'=>'UserController@update'));
+
 //User create
 Route::get('register', 'UserController@index');
 Route::post('user/create', array('before'=>'csrf', 'uses'=>'UserController@create'));
