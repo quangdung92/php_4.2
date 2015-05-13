@@ -69,10 +69,6 @@ class OauthController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function get_token()
-	{
-		return Response::json(array('token' => 'Steve'));
-	}
 
 	/**
 	 * Display the specified resource.

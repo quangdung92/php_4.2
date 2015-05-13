@@ -38,7 +38,5 @@ Route::get('oauth/twitter','OauthController@twitter');
 Route::get('oauth/facebook','OauthController@facebook');
 Route::get('oauth/status', 'OauthController@status');
 
-Route::get('get_token','OauthController@get_token');
-
 //Languages
 Route::get('/{lang}', 'HomeController@setLang');

@@ -2,27 +2,6 @@
 
 @section('content')
 
-
-<div class="row" align="center">
-	<form id="form_feeds">
-		<div class="medium-4 medium-centered columns">
-			<fieldset>
-				<legend>
-					{{ Lang::get('messages.upload.title') }}
-				</legend>
-				<label>{{ Lang::get('messages.post.status') }}
-					<textarea id="text_feed"></textarea>
-				</label>
-			</fieldset>
-		</div>
-		<div class="medium-4 medium-centered columns">
-			<button type="submit" id="btn_feed" class="btn btn-primary">
-				{{ Lang::get('messages.post.button') }}
-			</button>
-		</div>
-	</form>
-</div>
-<br />
 <div class="row" align="center">
  <table>
   <thead>
