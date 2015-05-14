@@ -17,7 +17,7 @@
 		</div>
 	{{ Form::close() }}
 	<br />
-	<div class="row" align="center" style="margin-top: 20px">
+	<div class="row" align="center">
 		<div class="medium-4 medium-centered columns">
 			<ul class="pricing-table">
 				<li class="title">

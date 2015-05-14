@@ -37,7 +37,11 @@ return array(
 					"title"		=> "Update",
 					"button"	=> "Update",
 					),
-										
+	'mail' => array(
+					"title"		=> "Send Profile",
+					"button"	=> "Send",
+					"sucess"	=> "Your profile has been sent to this email: ",
+					),											
 	'home' => array(
 					"title" 	=> "Home",
 					"login" 	=> "Login",

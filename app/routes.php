@@ -28,6 +28,7 @@ Route::post('user/create', array('before'=>'csrf', 'uses'=>'UserController@creat
 
 // Mails
 Route::get('mail', 'MailController@index');
+Route::post('mail/send', array('before'=>'csrf', 'uses'=>'MailController@create'));
 
 //Post
 Route::get('post','PostController@index');

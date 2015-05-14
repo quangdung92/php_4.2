@@ -37,7 +37,11 @@ return array(
 					"title"		=> "アップデート",
 					"button"	=> "アップデート",
 					),		
-						
+	'mail' => array(
+					"title"		=> "プロフィールを送信",
+					"button"	=> "送信",
+					"sucess"	=> "あなたのプロファイルは、このメールに送信されました: ",
+					),							
 	'home' => array(
 					"title" 	=> "ホーム",
 					"login" 	=> "ログイン",

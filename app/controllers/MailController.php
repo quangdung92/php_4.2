@@ -9,11 +9,7 @@ class MailController extends \BaseController {
 	 * @return Response
 	 */
 	public function index() {
-		$data = Auth::user();
-		Mail::send('mail.sendmail', array('acc' => $data), function($message) {
-			$message -> to('mayone.sama92@gmail.com') -> subject('TEST');
-		});
-		return View::make('mail/sendmail') -> with('acc', $data);
+		return View::make('mail/sendmail');
 	}
 
 	/**
@@ -23,7 +19,12 @@ class MailController extends \BaseController {
 	 * @return Response
 	 */
 	public function create() {
-		//
+		$data = Auth::user();
+		$mail = Request::get('email');
+		Mail::send('mail.tem', array('acc' => $data), function($message) use ($mail) {
+			$message -> to($mail) -> subject('Welcome');
+		});
+		return Redirect::to('mail') -> with('msg', Lang::get('messages.mail.sucess').$mail);
 	}
 
 	/**

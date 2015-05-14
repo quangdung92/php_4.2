@@ -36,7 +36,11 @@ return array(
 					"title"		=> "mettre à jour",
 					"button"	=> "mettre à jour",
 					),
-																
+	'mail' => array(
+					"title"		=> "Envoyer profil",
+					"button"	=> "Envoyer",
+					"sucess"	=> "Votre profil a été envoyé à cet email: ",
+					),																	
 	'home' => array(
 					"title" 	=> "Maison",
 					"login" 	=> "Se connecter",
