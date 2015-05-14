@@ -41,11 +41,11 @@ class ExampleTest extends TestCase {
 	}
 	public function test_register() {
 		$response = $this->action('POST', 'UserController@create', [
-													'username' => "test1234",
+													'name' => "test1234",
 													'password' => "123456",
-													'email'	   => "sa1234@gmail.com"
+													'email'	   => "test1234@gmail.com"
 													]); 
-		$this->assertEquals("test1234", Request::get('username'));
+		$this->assertEquals("test1234", Request::get('name'));
 		$this->assertRedirectedTo('/register');
 	}
 

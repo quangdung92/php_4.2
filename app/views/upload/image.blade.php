@@ -11,8 +11,9 @@
 				<legend>
 					{{ Lang::get('messages.upload.title') }}
 				</legend>
-				<label>{{ Lang::get('messages.upload.input') }}
-					<input type="file" name="photo">
+				<label class="fileUpload btn btn-primary">
+					{{ Lang::get('messages.upload.input') }}
+					<input type="file" name="photo" class="upload">
 				</label>
 			</fieldset>
 		</div>

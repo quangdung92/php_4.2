@@ -26,6 +26,9 @@ Route::post('profile/update', array('before'=>'csrf', 'uses'=>'UserController@up
 Route::get('register', 'UserController@index');
 Route::post('user/create', array('before'=>'csrf', 'uses'=>'UserController@create'));
 
+// Mails
+Route::get('mail', 'MailController@index');
+
 //Post
 Route::get('post','PostController@index');
 Route::post('post/create', array('before'=>'csrf', 'uses'=>'PostController@create'));

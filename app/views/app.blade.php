@@ -9,6 +9,7 @@
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/foundation.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/foundation.min.css') }}" rel="stylesheet">
+	<link href="{{ asset('/css/form.css') }}" rel="stylesheet">
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -42,6 +43,9 @@
 					</ul>
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('/upload') }}">{{ Lang::get('messages.home.upload') }}</a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/mail') }}">Mail</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-left">
 					<li class="dropdown">
