@@ -26,7 +26,7 @@ Route::post('profile/update', array('before'=>'csrf', 'uses'=>'UserController@up
 Route::get('register', 'UserController@index');
 Route::post('user/create', array('before'=>'csrf', 'uses'=>'UserController@create'));
 
-// Mails
+//Mails
 Route::get('mail', 'MailController@index');
 Route::post('mail/send', array('before'=>'csrf', 'uses'=>'MailController@create'));
 
@@ -48,3 +48,7 @@ Route::get('oauth/status', 'OauthController@status');
 
 //Languages
 Route::get('/{lang}', 'HomeController@setLang');
+
+//Chatbox
+Route::post('invite/user', array('uses'=>'ChatBoxController@create'));
+Route::post('send/message', array('uses'=>'ChatBoxController@store_message'));

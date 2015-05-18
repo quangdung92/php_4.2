@@ -52,7 +52,7 @@ class UserController extends \BaseController {
 		$all = 	Request::all();
 		if ($all['email'] == Auth::user()['email']) {
 			DB::table('users')
-	            ->where('id', Auth::user()['id'])
+	            ->where('id', Auth::id())
 	            ->update(array(
 	            				'username' => $all['name'], 
 	            				'password' => Hash::make($all['password'])
@@ -65,7 +65,7 @@ class UserController extends \BaseController {
 				return Redirect::to('profile')-> with('msg', $messages ->first('email'));
 			} else {
 				DB::table('users')
-	            ->where('id', Auth::user()['id'])
+	            ->where('id', Auth::id())
 	            ->update(array(
 	            				'username' => $all['name'], 
 	            				'email' => $all['email'],
@@ -84,6 +84,7 @@ class UserController extends \BaseController {
 		]);
 		Log::info(Auth::user());
 		if ($results){
+			App::make('ChatBoxController')->setchat();
 			return Redirect::to('/post') -> with('msg', Lang::get('messages.login.sucess'));
 		} else {
 			return Redirect::to('/') -> with('msg', Lang::get('messages.login.error'));
