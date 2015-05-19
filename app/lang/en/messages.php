@@ -25,6 +25,10 @@ return array(
 				),
 	'lang' => 'Languages',
 	
+	'mailsend' => array(
+					"title"		=> "Welcome"
+				),
+				
 	'upload' => array(
 					"title"		=> "Upload",
 					"input"		=> "Input file",

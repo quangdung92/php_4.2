@@ -45,12 +45,12 @@ class ChatBoxController extends \BaseController {
 		Log::info($message);
 		$room = Request::get('room');
 		Log::info($room);
-		Messenger::create([
+		Message::create([
 			'content' => $message,
 			'box_id' => $room,
 			'user_id' => Auth::id()
 		]);
-		return Response::json(array('status' => 'sucess'));
+		return Response::json(array('status' => 'sucess', 'user' => User::find(Auth::id())->username) );
 	}
 
 	/**
@@ -60,6 +60,12 @@ class ChatBoxController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
+	public function set_room()
+	{
+		//
+	}
+	
+	
 	public function show($id)
 	{
 		//

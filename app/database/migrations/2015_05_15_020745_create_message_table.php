@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMessengersTable extends Migration {
+class CreateMessageTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,7 +12,7 @@ class CreateMessengersTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('messengers', function(Blueprint $table)
+		Schema::create('message', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('user_id');
@@ -32,7 +32,7 @@ class CreateMessengersTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('messengers');
+		Schema::drop('message');
 	}
 
 }

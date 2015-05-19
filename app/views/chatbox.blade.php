@@ -8,8 +8,9 @@
 	<input type="checkbox" />
 	<label data-expanded="Close Chatbox" data-collapsed="Open Chatbox"></label>
 	<div class="chat-box-content">
-		<span style="opacity: 0.5">Username:</span> Ciluk baaa!!!
-		<hr />
+		<p id= "chat_box">
+			<span style="opacity: 0.5">Username:</span> Ciluk baaa!!!
+		</p>
 		<input type="text" id="message" />
 		<input type="submit" id="send_chat" value="Send"/>
 	</div>

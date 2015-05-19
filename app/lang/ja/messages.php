@@ -25,6 +25,10 @@ return array(
 				),
 	'lang' => '言語',
 	
+	'mailsend' => array(
+					"title"		=> "ようこそ"
+				),
+				
 	'upload' => array(
 					"title"		=> "アップロード",
 					"input"		=> "入力ファイル",

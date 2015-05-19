@@ -9,14 +9,26 @@ $(document).ready(function() {
 	});
 	
 	$("#check_room").click(function(){
-		$("#box").css({"display":"block"});
-		$("#room").css({"display":"none"});
+		var room = $("input[name=check_room]:checked").val();
+		console.log(room);
+		$.ajax ({
+			url : "check/room",
+			type : "post",
+			data : {
+				room : room
+			},
+			success :function (data) {
+				console.log(data);
+				if (data['status'] == "sucess") {
+					$("#box").css({"display":"block"});
+					$("#room").css({"display":"none"});
+				}
+			}
+		});
 	});
 	$("#send_chat").click(function(){
 		var room = $("input[name=check_room]:checked").val();
-		console.log(room);
 		var message = $("#message").val();
-		console.log(message);
 		$.ajax ({
 			url : "send/message",
 			type : "post",
@@ -26,7 +38,10 @@ $(document).ready(function() {
 			},
 			dataType : "json",
 			success :function (data) {
-				console.log(data['status']);
+				console.log(data['user']);
+				if (data['status'] == "sucess") {
+					$('#chat_box').append('<span style="opacity: 0.5">'+data['user']+':</span> '+message+' ');
+				}
 			}
 		});
 	});

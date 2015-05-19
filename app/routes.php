@@ -10,7 +10,6 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-
 Route::get('/', function()
 {
 	return View::make('index');
@@ -33,7 +32,7 @@ Route::post('mail/send', array('before'=>'csrf', 'uses'=>'MailController@create'
 //Post
 Route::get('post','PostController@index');
 Route::post('post/create', array('before'=>'csrf', 'uses'=>'PostController@create'));
-
+Route::post('post/update', array('uses'=>'PostController@update'));
 //Logout
 Route::get('logout', 'UserController@destroy');
 
@@ -52,3 +51,4 @@ Route::get('/{lang}', 'HomeController@setLang');
 //Chatbox
 Route::post('invite/user', array('uses'=>'ChatBoxController@create'));
 Route::post('send/message', array('uses'=>'ChatBoxController@store_message'));
+Route::post('check/room', array('uses'=>'ChatBoxController@set_room'));

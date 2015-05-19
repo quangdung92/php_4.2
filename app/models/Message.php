@@ -1,9 +1,9 @@
 <?php
 use Illuminate\Database\Eloquent\Model;
 
-class Messenger extends Model {
+class Message extends Model {
 
-	protected $table = 'messengers';
+	protected $table = 'message';
 	protected $fillable = ['content', 'user_id', 'box_id'];
 	
 	public function user()

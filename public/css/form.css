@@ -75,6 +75,37 @@ body {height:3000px}
 /* checked state */
 .chat-box > input[type="checkbox"]:checked + label {background-color:#212A35}
 .chat-box > input[type="checkbox"]:checked + label:before {content:attr(data-expanded)}
-.chat-box > input[type="checkbox"]:checked 
-~
- .chat-box-content {display:block}
+.chat-box > input[type="checkbox"]:checked ~ .chat-box-content {display:block}
+
+
+.description {
+	font-family: "Comic Sans MS, cursive, sans-serif";
+}
+.description > span {
+	font-size: 1rem;
+	text-transform: capitalize;
+	white-space: pre;
+	color: #761C28;
+}
+.pricing-table{
+	border: 0px dotted;
+}
+.pricing-table .title {
+	background-color: #00FFFF;
+	border: 0px;
+	border-radius: 10px 10px 0px 0px; 
+}
+#update_post {
+	background-color: #00FFFF;
+	border: 1px dotted;
+	border-radius: 5px 5px;
+	color: white;
+	margin-bottom: 10px;
+}
+
+#update_box {
+	border-radius: 10px 0px 10px 0px;
+	color: #761C28;
+	border-color: #761C28;
+	border: 1px dotted;
+}

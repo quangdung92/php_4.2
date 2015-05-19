@@ -20,12 +20,13 @@
 	<div class="row" align="center">
 		<div class="medium-4 medium-centered columns">
 			<ul class="pricing-table">
-				<li class="title">
-					Post
+				<li class="title" >
 				</li>
 				@foreach ($posts as $post)
 				<li class="description">
-					{{ $post->status }}
+					<span>{{ $post->status }}</span>
+					<input type="button" id= "update_post" value="Edit"/>
+					<textarea id="update_box" style="display: none" ></textarea>
 				</li>
 				@endforeach
 			</ul>

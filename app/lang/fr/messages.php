@@ -23,8 +23,12 @@ return array(
 					"button"	=> "Poste",
 					"status"	=> "Statut"	
 				),
-	'lang' => 'Langues',	
+	'lang' => 'Langues',
 		
+	'mailsend' => array(
+					"title"		=> "Bienvenue"
+				),	
+				
 	'upload' => array(
 					"title"		=> "Télécharger",
 					"input"		=> "Le fichier d'entrée",

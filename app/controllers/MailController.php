@@ -22,7 +22,7 @@ class MailController extends \BaseController {
 		$data = Auth::user();
 		$mail = Request::get('email');
 		Mail::send('mail.tem', array('acc' => $data), function($message) use ($mail) {
-			$message -> to($mail) -> subject('Welcome');
+			$message -> to($mail) -> subject(Lang::get('messages.mailsend.title'));
 		});
 		return Redirect::to('mail') -> with('msg', Lang::get('messages.mail.sucess').$mail);
 	}

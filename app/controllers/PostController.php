@@ -15,8 +15,6 @@ class PostController extends \BaseController {
 		if ($current_user) {
 			$posts = User::find($current_user['id'])->post()->get();
 			return View::make('post')->with(array('title'=>$title, 'posts'=>$posts));
-		} else {
-			return "Login first!";
 		}
 	}
 
@@ -77,9 +75,17 @@ class PostController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
-		//
+		$text = Request::get('text');
+		$up_text = Request::get('up_text');
+		Log::info(nl2br($up_text));
+		$a = DB::table('posts')
+				->where("status","=",$text)
+				->update(array(
+						"status" => $up_text
+						));
+		return Response::json(array('status' => 'success'));
 	}
 
 	/**
