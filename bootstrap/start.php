@@ -26,6 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(function()
 {
+	if (!empty(getenv('LARAVEL_ENV'))) {
 	switch ($_SERVER['HTTP_HOST']) {
 		case 'php.pro':
 			return 'production';
@@ -36,6 +37,8 @@ $env = $app->detectEnvironment(function()
 		default:
 			return 'local';
 			break;
+	}} else {
+		return 'local';
 	}
 });
 
