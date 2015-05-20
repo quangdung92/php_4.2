@@ -24,9 +24,20 @@ $app = new Illuminate\Foundation\Application;
 |
 */
 
-$env = $app->detectEnvironment(array(
-    'local' => [gethostname()]
-));
+$env = $app->detectEnvironment(function()
+{
+	switch ($_SERVER['HTTP_HOST']) {
+		case 'php.pro':
+			return 'production';
+			break;
+		case 'php.dev':
+			return 'development';
+			break;
+		default:
+			return 'local';
+			break;
+	}
+});
 
 
 /*

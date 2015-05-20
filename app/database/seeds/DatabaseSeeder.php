@@ -22,9 +22,10 @@ class UserTableSeeder extends Seeder {
 
     public function run()
     {
+    	$environment = app()->environment();
 		User::create([
 			'username' => 'sa1234',
-			'email' => 'sa1234@gmail.com',
+			'email' => 'sa1234.'.$environment.'@gmail.com',
 			'password' => Hash::make('sa12345')
 		]);
     }

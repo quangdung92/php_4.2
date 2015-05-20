@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-
+{{ $env }}
 <div class="row" align="center">
 	{{ Form::open(array('url' => 'user/login', 'method' => 'POST')) }}
 		{{ Form::token() }}
