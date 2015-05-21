@@ -24,8 +24,8 @@
 				</li>
 				@foreach ($posts as $post)
 				<li class="description">
-					<span>{{ $post->status }}</span>
-					<input type="button" id= "update_post" value="Edit"/>
+					<span post_id="{{ $post->id }}" >{{ $post->status }}</span>
+					<input type="button" id="update_post" value="Edit"/>
 					<textarea id="update_box" style="display: none" ></textarea>
 				</li>
 				@endforeach

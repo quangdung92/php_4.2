@@ -77,11 +77,10 @@ class PostController extends \BaseController {
 	 */
 	public function update()
 	{
-		$text = Request::get('text');
+		$post_id = Request::get('post_id');
 		$up_text = Request::get('up_text');
-		Log::info(nl2br($up_text));
-		$a = DB::table('posts')
-				->where("status","=",$text)
+		DB::table('posts')
+				->where("id","=",$post_id)
 				->update(array(
 						"status" => $up_text
 						));

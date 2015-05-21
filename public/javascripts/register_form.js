@@ -1,11 +1,11 @@
-function Post_Update(text, up_text) {
+function Post_Update(post_id, up_text) {
 	var result = "";
 	$.ajax ({
 		url : "post/update",
 		type: "post",
 		async: false,
 	    data: {
-		    text : text,
+		    post_id : post_id,
 		    up_text : up_text
 		},
 	    dataType: "json",
@@ -75,9 +75,9 @@ $(document).ready(function() {
 					if (!$.trim($(this).val())) {
 						$(this).fadeOut("slow");
 					} else {
-						var text = $(this).parent().find('span').text();
+						var post_id = $(this).parent().find('span').attr('post_id');
 						var up_text = $(this).val();
-						var request = Post_Update(text, up_text);
+						var request = Post_Update(post_id, up_text);
 							if (request == "success") {
 								$(this).parent().find('span').text(up_text);
 								$(this).fadeOut("fast");
