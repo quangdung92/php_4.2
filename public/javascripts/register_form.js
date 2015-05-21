@@ -1,4 +1,4 @@
-function Post_Update(post_id, up_text) {
+function postUpdate(post_id, up_text) {
 	var result = "";
 	$.ajax ({
 		url : "post/update",
@@ -77,7 +77,7 @@ $(document).ready(function() {
 					} else {
 						var post_id = $(this).parent().find('span').attr('post_id');
 						var up_text = $(this).val();
-						var request = Post_Update(post_id, up_text);
+						var request = postUpdate(post_id, up_text);
 							if (request == "success") {
 								$(this).parent().find('span').text(up_text);
 								$(this).fadeOut("fast");

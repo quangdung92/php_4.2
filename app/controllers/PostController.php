@@ -79,12 +79,13 @@ class PostController extends \BaseController {
 	{
 		$post_id = Request::get('post_id');
 		$up_text = Request::get('up_text');
-		DB::table('posts')
-				->where("id","=",$post_id)
-				->update(array(
-						"status" => $up_text
-						));
-		return Response::json(array('status' => 'success'));
+		$post = DB::table('posts')->where("id","=",$post_id);
+		$owner_id = $post->first()->user_id;
+		if ($owner_id == Auth::id()) {
+			$post->update(array("status" => $up_text));
+			return Response::json(array('status' => 'success'));
+		}
+		
 	}
 
 	/**
