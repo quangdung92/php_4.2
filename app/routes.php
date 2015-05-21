@@ -12,8 +12,7 @@
 */
 Route::get('/', function()
 {
-	$environment = app()->environment();
-	return View::make('index')->with('env','You are on '.$environment);
+	return View::make('index');
 });
 //User login
 Route::post('user/login', array('before'=>'csrf', 'uses'=>'UserController@login'));

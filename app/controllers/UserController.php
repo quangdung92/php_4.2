@@ -32,7 +32,7 @@ class UserController extends \BaseController {
 			'email' => $all['email'],
 			'password' => Hash::make($all['password']),
 		]);
-			return Redirect::to('register')-> with('msg', Lang::get('messages.register.sucess'));
+			return Redirect::to('/')-> with('msg', Lang::get('messages.register.sucess'));
 		}
 	}
 

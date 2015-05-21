@@ -13,8 +13,13 @@
 
 App::before(function($request)
 {
+	$url = $request->path();
+	if (Auth::guest() && !in_array($url, array('/','register', 'user/login','user/create','en','ja','fr'))) {
+		return Redirect::to('/');
+	} elseif (Auth::user() && $url == '/') {
+		return Redirect::to('/post');
+	}
 });
-
 
 App::after(function($request, $response)
 {

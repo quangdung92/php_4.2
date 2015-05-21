@@ -61,7 +61,6 @@ body {height:3000px}
   font-weight:bold;
   padding: 1px;
 }
-
 .chat-box > label:before {content:attr(data-collapsed)}
 
 .chat-box .chat-box-content {
@@ -108,4 +107,7 @@ body {height:3000px}
 	color: #761C28;
 	border-color: #761C28;
 	border: 1px dotted;
+}
+.navbar-brand{
+	text-transform: capitalize;
 }
