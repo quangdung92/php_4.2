@@ -15,7 +15,7 @@ class CreateChatBoxsTable extends Migration {
 		Schema::create('chat_boxs', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id');
+			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users');
 			$table->integer('follower_id');
 			$table->timestamps();
