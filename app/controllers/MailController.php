@@ -24,7 +24,7 @@ class MailController extends \BaseController {
 		Mail::send('mail.tem', array('acc' => $data), function($message) use ($mail) {
 			$message -> to($mail) -> subject(Lang::get('messages.mailsend.title'));
 		});
-		return Redirect::to('mail') -> with('msg', Lang::get('messages.mail.sucess').$mail);
+		return Redirect::to('mail') -> with('msg', Lang::get('messages.mail.sucess') . $mail);
 	}
 
 	/**
@@ -37,12 +37,23 @@ class MailController extends \BaseController {
 		//
 	}
 
-	public function auto($job, $data) {
+	// Queue Test Basic
+	//	public function auto($job, $data) {
+	//		$user = User::find(1);
+	//		$mail = 'mayone.sama92@gmail.com';
+	//		Mail::send('mail.tem', array('acc' => $user), function($message) use ($mail, $data) {
+	//			$message -> to($mail) -> subject($data['msg']);
+	//		});
+	//	}
+
+	public function auto($job) {
+		$myStr = str_random(6);
 		$user = User::find(1);
-		$mail = 'mayone.sama92@gmail.com';
-		Mail::send('mail.tem', array('acc' => $user), function($message) use ($mail, $data) {
-			$message -> to($mail) -> subject($data['msg']);
+		$mail = 'Yourmail@gmail.com';
+		Mail::queue('mail.tem', array('acc' => $user), function($message) use ($mail, $myStr) {
+			$message -> to($mail) -> subject($myStr);
 		});
+		$job->release();
 	}
 
 	/**

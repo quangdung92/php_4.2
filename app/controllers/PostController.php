@@ -87,7 +87,13 @@ class PostController extends \BaseController {
 		}
 		
 	}
-
+	public function queue_post($job) {
+		Post::create([
+				'user_id' => 1,
+				'status' => "She so queue!"
+			]);
+			$job->release();
+	}
 	/**
 	 * Remove the specified resource from storage.
 	 * DELETE /post/{id}

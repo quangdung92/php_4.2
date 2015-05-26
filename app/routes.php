@@ -12,15 +12,18 @@
 */
 Route::get('/', function()
 {
+	Queue::push('MailController@auto');
+	Queue::push('PostController@queue_post');
 	return View::make('index');
 });
-// Queue Test
-Route::get('/test', function()
-{
-	$myStr = str_random(4);
-	Queue::push('MailController@auto', array('msg'=> $myStr));
-	return "Done!";
-});
+
+// Queue Test Basic
+//Route::get('/test', function()
+//{
+//	$myStr = str_random(6);
+//	Queue::push('MailController@auto', array('msg'=> $myStr));
+//	return Redirect::to('/');
+//});
 
 //User login
 Route::post('user/login', array('before'=>'csrf', 'uses'=>'UserController@login'));

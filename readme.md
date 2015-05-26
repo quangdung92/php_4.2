@@ -1,4 +1,4 @@
-## Laravel PHP Framework 4.2 
+# Laravel PHP Framework 4.2 
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
@@ -6,7 +6,7 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
-## Instructions
+# Instructions
 
 ## For ubuntu users
 
@@ -30,4 +30,14 @@
 		password: sa12345<br/>
 	Have fun !!
 
-##
+## Queue with Redis
+
+1. Install redis: http://redis.io/download<br />
+
+2. Run redis server: sudo service redis-server start<br />
+
+3. Test queue with send Mails:
+<br />
+	### Go to MailController method auto(), change $mail = "YourEmail"<br />
+	Run: php artisan queue:work or php artisan queue:listen<br />
+#End
