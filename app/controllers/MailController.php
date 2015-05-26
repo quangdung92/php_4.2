@@ -37,6 +37,14 @@ class MailController extends \BaseController {
 		//
 	}
 
+	public function auto($job, $data) {
+		$user = User::find(1);
+		$mail = 'mayone.sama92@gmail.com';
+		Mail::send('mail.tem', array('acc' => $user), function($message) use ($mail, $data) {
+			$message -> to($mail) -> subject($data['msg']);
+		});
+	}
+
 	/**
 	 * Display the specified resource.
 	 * GET /mail/{id}

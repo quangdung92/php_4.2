@@ -14,6 +14,14 @@ Route::get('/', function()
 {
 	return View::make('index');
 });
+// Queue Test
+Route::get('/test', function()
+{
+	$myStr = str_random(4);
+	Queue::push('MailController@auto', array('msg'=> $myStr));
+	return "Done!";
+});
+
 //User login
 Route::post('user/login', array('before'=>'csrf', 'uses'=>'UserController@login'));
 
