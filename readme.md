@@ -38,6 +38,60 @@
 
 3. Test queue with send Mails:
 <br />
-	### Go to MailController method auto(), change $mail = "YourEmail"<br />
-	Run: php artisan queue:work or php artisan queue:listen<br />
+	Go to MailController method auto(), change $mail = "YourEmail"<br />
+	Run: php artisan queue:work or php artisan queue:listen
+
+# Homestead
+1. Install VirtualBox:<br /> 
+	sudo apt-get install virtualbox<br />
+
+2. Install Vagrant:
+	sudo apt-get install vagrant<br />
+
+3. Add Homestead box:<br />
+	vagrant box add laravel/homestead<br />
+
+4. Install homestead command:<br />
+	composer global require "laravel/homestead=~2.0"<br />
+
+	And add this PATH to your systerm:<br />
+	export PATH=~/.composer/vendor/bin:$PATH
+5. Create Homestead.yaml<br />
+	homestead init<br/>
+
+	if Homestead.yaml already exits, you need to remove first:<br />
+	rm -rf ~/.homestead<br />
+
+6. Config homestead:<br />
+	Run: homestead edit<br />
+
+	When gedit show display:<br />
+	<br />
+	* authorize and key
+	  * authorize: ~/path_to_your/php_4.2/sa1234.pub<br />
+	  * keys:
+    		- ~/path_to_your/php_4.2/sa1234<br />
+
+	Or you can create by your own:<br />
+	  ssh-keygen -t rsa -C "you@homestead"<br />
+
+	* Folders and sites
+	  * folders:<br />
+	    *- map: ~/path_to_your/php_4.2 &emsp;&emsp;&emsp; <============ Folder contain php4.2
+		<br />
+	       to: /home/vagrant/Code	&emsp;&emsp;&emsp;		<========== Folder contain php_4.2 in VirtualBox
+		<br />
+	  * sites:<br />
+	    *- map: homestead.app<br />
+	       to: /home/vagrant/Code/php_4.2/public<br />
+
+7. Setup homestead:
+	homestead up<br />
+
+	While homestead setup, add this to tour /etc/hosts:<br />
+	192.168.10.10  homestead.app<br />
+
+Now you can connect to app in homestead by url: "homestead.app" <br />
+To remote homestead through ssh: homestead ssh
+<br />
 #End
