@@ -87,5 +87,36 @@ $(document).ready(function() {
 			}
 		});
 	}); 
-
+	
+	$('#selecctall').click(function() {
+		if (this.checked) {
+			$('.kid_box').each(function() {
+				this.checked = true;
+			});
+		} else {
+			$('.kid_box').each(function() {
+				this.checked = false;
+			});
+		}
+	});	
+	
+	$('#dl_post').click(function() {
+		var post_ids = $('.kid_box:checked').map(function(){
+			return this.value;
+		}).get();
+		$.ajax ({
+			url: 'post/delete',
+			type: 'post',
+			data: {
+				post_ids : post_ids
+			},
+			dataType: 'json',
+			success: function(data) {
+				$('.kid_box:checked').each(function() {
+					$(this).parent().remove();
+				});
+				$('#selecctall').attr('checked', false);
+			}
+		});
+	});
 });

@@ -12,7 +12,7 @@
 		</div>
 		<div class="row">
 			<div class="medium-4 medium-centered columns">
-				{{ Form::submit(Lang::get('messages.post.button'), array('class'=>'button small')) }}
+				{{ Form::submit(Lang::get('messages.post.button'), array('class'=>'button tiny radius')) }}
 			</div>
 		</div>
 	{{ Form::close() }}
@@ -20,16 +20,19 @@
 	<div class="row" align="center">
 		<div class="medium-4 medium-centered columns">
 			<ul class="pricing-table">
-				<li class="title" >
+				<li class="title" style="padding: 0px; padding-top: 15px">
+					<input type="checkbox" id="selecctall"/> Selecct All
 				</li>
 				@foreach ($posts as $post)
-				<li class="description">
+				<li class="description" style="text-align: left">
+					<input class="kid_box" type="checkbox" value="{{ $post->id }}">
 					<span post_id="{{ $post->id }}" >{{ $post->status }}</span>
-					<input type="button" id="update_post" value="Edit"/>
+					<input type="button" id="update_post" value="Edit" style="float: right"/>
 					<textarea id="update_box" style="display: none" ></textarea>
 				</li>
 				@endforeach
 			</ul>
+			<input type="button" id="dl_post" class="button tiny radius" value="Delete"/>
 		</div>
 	</div>
 </div>

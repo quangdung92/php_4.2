@@ -88,11 +88,31 @@ class PostController extends \BaseController {
 		
 	}
 	public function queue_post($job) {
+		$rstring = str_random(6);
 		Post::create([
 				'user_id' => 1,
-				'status' => "She so queue!"
+				'status' => $rstring
 			]);
-			$job->release();
+		Log::info($job->attempts());
+		if ($job->attempts() > 5)
+			{
+				$job -> delete();
+			} else {
+				$job -> release(5);
+			}
+	}
+	
+	public function queue_delete($job,$data) {
+		if (!empty($data['ids'])) {
+		foreach ($data['ids'] as $id) {
+			$post = Post::where('id','=',$id);
+			$owner_id = $post->first()->user_id;
+			if ($owner_id == $data['current_user']['id']) {
+				$post -> delete();
+			}
+			}
+		}
+		$job -> delete();
 	}
 	/**
 	 * Remove the specified resource from storage.

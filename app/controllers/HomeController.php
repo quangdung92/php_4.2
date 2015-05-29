@@ -18,7 +18,6 @@ class HomeController extends BaseController {
 	public function setLang($lang)
 	{
 		Session::put('lang', $lang);
-		Log::info($lang);
 		return Redirect::back();
 	}
 }

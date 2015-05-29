@@ -46,16 +46,6 @@ class MailController extends \BaseController {
 	//		});
 	//	}
 
-	public function auto($job) {
-		$myStr = str_random(6);
-		$user = User::find(1);
-		$mail = 'Yourmail@gmail.com';
-		Mail::queue('mail.tem', array('acc' => $user), function($message) use ($mail, $myStr) {
-			$message -> to($mail) -> subject($myStr);
-		});
-		$job->release();
-	}
-
 	/**
 	 * Display the specified resource.
 	 * GET /mail/{id}

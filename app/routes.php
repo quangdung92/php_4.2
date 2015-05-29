@@ -12,11 +12,11 @@
 */
 Route::get('/', function()
 {
-	Queue::push('MailController@auto');
-	Queue::push('PostController@queue_post');
 	return View::make('index');
 });
 
+
+	
 // Queue Test Basic
 //Route::get('/test', function()
 //{
@@ -44,6 +44,9 @@ Route::post('mail/send', array('before'=>'csrf', 'uses'=>'MailController@create'
 Route::get('post','PostController@index');
 Route::post('post/create', array('before'=>'csrf', 'uses'=>'PostController@create'));
 Route::post('post/update', array('uses'=>'PostController@update'));
+Route::get('post/auto_create', 'QueueController@post_create');
+Route::post('post/delete', array('uses'=>'QueueController@post_delete'));
+
 //Logout
 Route::get('logout', 'UserController@destroy');
 
