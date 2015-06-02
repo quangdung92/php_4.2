@@ -26,7 +26,7 @@ class ImageController extends \BaseController {
 		$filename = $file->getClientOriginalName();
 		Log::info($file);
 		//Store file
-		$file->move('uploads/', $filename);
+		$file->move(public_path().'/uploads/', $filename);
 		//Insert into DB
 		Image::create([
 			'user_id' => Auth::user()['id'],

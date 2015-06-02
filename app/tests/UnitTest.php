@@ -1,6 +1,6 @@
 <?php
 
-class ExampleTest extends TestCase {
+class UnitTest extends TestCase {
 
 	/**
 	 * A basic functional test example.
@@ -14,22 +14,22 @@ class ExampleTest extends TestCase {
 		$this->assertTrue($this->client->getResponse()->isOk());
 	}
 	
+	public function user() {
+			$user = User::find(1);
+			$this->be($user);
+	}
+	
     public function test_login()
     {
-    $credentials = array(
-        'email'=>'sa1234@gmail.com',
-        'password'=>'sa12345'
-	);
-	$response = $this->action('POST', 'UserController@login', $credentials); 
-	
-	$this->assertRedirectedTo('/post');
-	$this->assertEquals("sa1234", Auth::user()['username']);
-	
+    	$this->user(); 
+		$this->assertEquals("sa1234", Auth::user()['username']);
+		$this->call('GET', '/post');
     }
+	
 	public function test_post()
 	{
 		//get login
-		$this->test_login(); 
+		$this->user(); 
 		$this->assertEquals("sa1234", Auth::user()['username']);
 		//check post
 		$response = $this->action('POST', 'PostController@create', ['status' => "This is test"]); 
@@ -39,6 +39,7 @@ class ExampleTest extends TestCase {
 		$this->assertViewHas('title');
 		$this->assertViewHas('posts');
 	}
+	
 	public function test_register() {
 		$response = $this->action('POST', 'UserController@create', [
 													'name' => "test1234",
@@ -50,7 +51,7 @@ class ExampleTest extends TestCase {
 	}
 
 	public function test_upload() {
-		$this->test_login(); 
+		$this->user(); 
 		$fileupload= 
 			new Symfony\Component\HttpFoundation\File\UploadedFile(public_path().'/uploads/download.jpg', 'download.jpg');
 		$response = $this->call('POST', '/upload/create',[],['photo' => $fileupload]);
@@ -58,5 +59,22 @@ class ExampleTest extends TestCase {
 		$this->assertEquals("download.jpg", $fileupload->getClientOriginalName());
 	}
 	
+	public function test_mail() {
+		$this->user(); 
+		$this->action('POST', 'MailController@create', ['email' => 'mayone.sama92@gmail.com']);
+		$this->assertRedirectedTo('/mail');
+	}
+	
+	public function test_lang() {
+		$this->client->request('GET', '/post');
+		//japanese
+			$this->client->request('GET', '/ja');
+			$lang = Session::get('lang'); 
+			$this->assertEquals("ja", $lang);
+		//france
+			$this->client->request('GET', '/fr');
+			$lang = Session::get('lang'); 
+			$this->assertEquals("fr", $lang);	
+	}
 	
 }
