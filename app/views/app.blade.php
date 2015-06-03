@@ -46,6 +46,9 @@
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('/mail') }}">Mail</a></li>
 					</ul>
+					<ul class="nav navbar-nav">
+						<li><a href="{{ url('/list_user') }}">List User</a></li>
+					</ul>
 					<ul class="nav navbar-nav navbar-left">
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Feeds<span class="caret"></span></a>
@@ -94,6 +97,7 @@
 	<script src="/javascripts/register_form.js"></script>
 	<script src="/javascripts/oauth.js"></script>
 	<script src="/javascripts/chat_box.js"></script>
+	<script src="/javascripts/follow.js"></script>
 	<script src="/javascripts/jquery.validate.min.js"></script>
 </body>
 </html>

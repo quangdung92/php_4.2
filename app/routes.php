@@ -59,6 +59,11 @@ Route::get('oauth/twitter','OauthController@twitter');
 Route::get('oauth/facebook','OauthController@facebook');
 Route::get('oauth/status', 'OauthController@status');
 
+//Follow
+Route::get('list_user', 'ListUserController@index');
+Route::post('following', array('uses'=>'ListUserController@following'));
+Route::post('unfollow', array('uses'=>'ListUserController@unfollow'));
+
 //Languages
 Route::get('/{lang}', 'HomeController@setLang');
 

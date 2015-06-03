@@ -26,7 +26,7 @@
 				@foreach ($posts as $post)
 				<li class="description" style="text-align: left">
 					<input class="kid_box" type="checkbox" value="{{ $post->id }}">
-					<span post_id="{{ $post->id }}" >{{ $post->status }}</span>
+					<span post_id="{{ $post->id }}">{{ $post->status }}</span>
 					<input type="button" id="update_post" value="Edit" style="float: right"/>
 					<textarea id="update_box" style="display: none" ></textarea>
 				</li>
