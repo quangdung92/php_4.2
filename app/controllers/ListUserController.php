@@ -10,19 +10,18 @@ class ListUserController extends \BaseController {
 	 */
 	public function index()
 	{
+		//get following, follower
 		$all_followings = Auth::user()->following()->get();
+		$all_followers = Auth::user()->follower()->get();
+		Log::info($all_followers);
+		// Check list users
 		$all_followings_id = Auth::user()->following()->lists('following_id');
 		$all_users = User::whereNotIn('id', $all_followings_id)->where('id','!=',Auth::id())->get();
 		return View::make('user/listuser')->with(array('all_users' => $all_users,
-													   'followings' => $all_followings));
+													   'followings' => $all_followings,
+													   'followers' => $all_followers));
 	}
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /listuser/create
-	 *
-	 * @return Response
-	 */
 	public function following()
 	{
 		$following_id = Request::get('following_id');
@@ -31,30 +30,12 @@ class ListUserController extends \BaseController {
 		return Response::json(array('status' => 'success'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /listuser
-	 *
-	 * @return Response
-	 */
 	public function unfollow()
 	{
 		$unfollow_id = Request::get('following_id');
 		$unfollow_user = User::find($unfollow_id);
 		Auth::user()->follow_list()->where('following_id','=',$unfollow_id)->delete();
 		return Response::json(array('status' => 'unfollowed'));
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /listuser/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
 	}
 
 	/**

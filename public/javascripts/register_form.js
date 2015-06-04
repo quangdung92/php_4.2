@@ -75,12 +75,13 @@ $(document).ready(function() {
 					if (!$.trim($(this).val())) {
 						$(this).fadeOut("slow");
 					} else {
-						var post_id = $(this).parent().find('span').attr('post_id');
+						var post_id = $(this).parent().find('div').attr('post_id');
 						var up_text = $(this).val();
 						var request = postUpdate(post_id, up_text);
 							if (request == "success") {
-								$(this).parent().find('span').text(up_text);
+								$(this).parent().find('div').text(up_text);
 								$(this).fadeOut("fast");
+								location.reload();
 							}
 					}
 				}
@@ -113,7 +114,7 @@ $(document).ready(function() {
 			dataType: 'json',
 			success: function(data) {
 				$('.kid_box:checked').each(function() {
-					$(this).parent().remove();
+					$(this).parent().parent().remove();
 				});
 				$('#selecctall').attr('checked', false);
 			}

@@ -3,6 +3,7 @@ $(document).ready(function() {
 		$("input:checkbox").change(function(){
 			if (this.checked) {
 				var id = $(this).val();
+				var a = $(this).parent();
 				$.ajax ({
 					url: "following",
 					type: "post",
@@ -10,7 +11,8 @@ $(document).ready(function() {
 						following_id : id
 					},
 					success :function(data) {
-						console.log(data);
+						console.log(data['status']);
+						location.reload();
 					}
 				});
 			}
@@ -18,7 +20,7 @@ $(document).ready(function() {
 	});
 	$('#following_box').each(function() {
 		$("input:button").click(function() {
-			var id = $(this).attr("f_id");
+			var id = $(this).prev().attr("f_id");
 			$.ajax ({
 					url: "unfollow",
 					type: "post",
@@ -27,8 +29,9 @@ $(document).ready(function() {
 					},
 					success :function(data) {
 						console.log(data);
+						location.reload();
 					}
 				});
-		});
+			});
 	});
 });

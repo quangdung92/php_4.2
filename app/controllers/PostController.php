@@ -10,11 +10,18 @@ class PostController extends \BaseController {
 	 */
 	public function index()
 	{
-		$current_user = Auth::user();
+		$followings_id = Auth::user()->following()->lists('following_id');
 		$title = Lang::get('messages.post.title');
-		if ($current_user) {
-			$posts = User::find($current_user['id'])->post()->get();
-			return View::make('post')->with(array('title'=>$title, 'posts'=>$posts));
+		$all_posts = Post::whereIn('user_id',$followings_id)
+						->orWhere('user_id','=',Auth::id())
+						->join('users as user', 'user.id', '=', 'user_id')
+						->select(array('posts.id','posts.updated_at','posts.status','user.username'))
+						->orderBy('updated_at','desc')
+						->get();
+		Log::info($all_posts);
+		if (Auth::user()) {
+			$posts = User::find(Auth::id())->post()->get();
+			return View::make('post')->with(array('title'=>$title, 'posts'=>$posts, 'all_posts' => $all_posts));
 		}
 	}
 
