@@ -18,7 +18,6 @@ class PostController extends \BaseController {
 						->select(array('posts.id','posts.updated_at','posts.status','user.username'))
 						->orderBy('updated_at','desc')
 						->get();
-		Log::info($all_posts);
 		if (Auth::user()) {
 			$posts = User::find(Auth::id())->post()->get();
 			return View::make('post')->with(array('title'=>$title, 'posts'=>$posts, 'all_posts' => $all_posts));

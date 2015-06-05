@@ -83,12 +83,13 @@ body {
 	font-family: "Comic Sans MS, cursive, sans-serif";
 }
 
-.description > div {
+.description > div,span {
 	font-size: 1rem;
 	text-transform: capitalize;
 	white-space: normal;
 	color: #761C28;
 }
+
 .pricing-table{
 	border: 0px dotted;
 }
@@ -110,12 +111,9 @@ body {
 }
 
 #update_box {
-	border-radius: 20px 20px;
 	color: #761C28;
-	border-color: #761C28;
-	border: 1px dotted;
-	border-left: 20px solid #3366FF;
-	border-right: 20px solid #3366FF;
+	border: 1px solid #3366FF;
+	border-left: 15px solid #3366FF;
 }
 .navbar-brand{
 	text-transform: capitalize;

@@ -33,5 +33,31 @@ $(document).ready(function() {
 					}
 				});
 			});
-	});
+		});
+	$('textarea').textcomplete([{
+		mentions : friendList(),
+		match : /\B@(\w*)$/,
+		search : function(term, callback) {
+			callback($.map(this.mentions, function(mention) {
+				return mention.indexOf(term) === 0 ? mention : null;
+			}));
+		},
+		index : 1,
+		replace : function(mention) {
+			return '@' + mention + ' ';
+		}
+	}]); 
+
 });
+function friendList(){
+	var result = "";
+	$.ajax({
+		url: "search/user",
+		type: "get",
+		async: false,
+		success: function(data) {
+			result = data["search_list"];
+		}
+	});
+	return result;
+}

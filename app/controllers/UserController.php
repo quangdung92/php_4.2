@@ -98,9 +98,10 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function search()
 	{
-		//
+		$names = Auth::user()->following()->lists('username');
+		return Response::json(array('status' => 'success','search_list' => $names));
 	}
 
 	/**

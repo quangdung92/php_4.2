@@ -64,6 +64,9 @@ Route::get('list_user', 'ListUserController@index');
 Route::post('following', array('uses'=>'ListUserController@following'));
 Route::post('unfollow', array('uses'=>'ListUserController@unfollow'));
 
+//Search
+Route::get('search/user', 'UserController@search');
+
 //Languages
 Route::get('/{lang}', 'HomeController@setLang');
 
