@@ -18,7 +18,7 @@
 		<li class="description" style="text-align: left">
 			<div post_id="{{ $post->id }}">
 				<input class="kid_box" type="checkbox" value="{{ $post->id }}">
-				{{ $post->status }}
+				<div id="alstatus">{{ $post->status }}</div>
 			</div>
 			<input type="button" id="update_post" value="Edit" style="float: right"/>
 			<textarea id="update_box" style="display: none" ></textarea>
@@ -32,7 +32,7 @@
 	@foreach ($all_posts as $all_post)	
 	<li class="description" style="text-align: left">
 		<h4>{{ $all_post->username }}</h4>
-		<div style="width: 600px">{{ $all_post->status }}</div>
+		<div id="alstatus" style="width: 600px">{{ $all_post->status }}</div>
 		<span style="float: right">{{ $all_post->updated_at }}</span>
 	</li>
 	@endforeach

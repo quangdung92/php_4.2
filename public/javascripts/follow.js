@@ -47,7 +47,19 @@ $(document).ready(function() {
 			return '@' + mention + ' ';
 		}
 	}]); 
-
+	$('li.description').each(function() {
+		$(this).find('#alstatus').text(function(index,text) {
+			var f_match = text.match(/\B@\w+/g);
+			var c_match = [];
+			if (f_match) {
+				for (i = 0; i < f_match.length; i++) {
+					c_match[i] = f_match[i].replace('@','');
+				}
+			var e_match = $(this).text().replaceArray(f_match, c_match);
+			$(this).html(e_match);
+			};
+		});
+	});
 });
 function friendList(){
 	var result = "";
@@ -61,3 +73,10 @@ function friendList(){
 	});
 	return result;
 }
+String.prototype.replaceArray = function(text, replace) {
+  var replaceString = this;
+  for (var i = 0; i < text.length; i++) {
+    replaceString = replaceString.replace(text[i], '<span class="com_text">'+replace[i]+'</span>');
+  }
+  return replaceString;
+};
