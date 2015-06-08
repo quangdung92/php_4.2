@@ -31,6 +31,7 @@ Route::post('user/login', array('before'=>'csrf', 'uses'=>'UserController@login'
 //profile
 Route::get('profile', 'UserController@profile');
 Route::post('profile/update', array('before'=>'csrf', 'uses'=>'UserController@update'));
+Route::post('check/avatar', array('uses'=>'UserController@avatar'));
 
 //User create
 Route::get('register', 'UserController@index');
@@ -53,6 +54,8 @@ Route::get('logout', 'UserController@destroy');
 //Upload
 Route::get('upload', 'ImageController@index');
 Route::post('upload/create', array('before'=>'csrf', 'uses'=>'ImageController@create'));
+Route::post('image/delete', array('uses' => 'ImageController@delete'));
+Route::post('image/avatar', array('uses' => 'ImageController@avatar'));
 
 //Oauth
 Route::get('oauth/twitter','OauthController@twitter');

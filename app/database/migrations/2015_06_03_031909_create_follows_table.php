@@ -17,7 +17,7 @@ class CreateFollowsTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id');
 			$table->integer('following_id');
-			$table->timestamps();
+			$table->nullabletimestamps();
 		});
 	}
 

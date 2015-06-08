@@ -33,7 +33,8 @@ return array(
 					"title"		=> "Upload",
 					"input"		=> "Input file",
 					"button"	=> "Post",
-					"sucess"	=> "Upload Complete!"
+					"sucess"	=> "Upload Complete!",
+					"error"	=> "Something wrong in the system, Please! Upload again or wait until it is repaired"
 					),
 					
 	'profile' => array(

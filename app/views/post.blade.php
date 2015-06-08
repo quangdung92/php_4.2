@@ -22,6 +22,7 @@
 			</div>
 			<input type="button" id="update_post" value="Edit" style="float: right"/>
 			<textarea id="update_box" style="display: none" ></textarea>
+			<br />
 		</li>
 		@endforeach
 	</ul>
@@ -30,10 +31,10 @@
 <div class="medium-8 medium-left columns" id="wall_street">
 	<ul class="pricing-table">
 	@foreach ($all_posts as $all_post)	
-	<li class="description" style="text-align: left">
-		<h4>{{ $all_post->username }}</h4>
+	<li class="description" style="text-align: left" id="social_post">
+		<h5><img src="/uploads/no_ava" id="img_ava" urs_id="{{$all_post->user_id}}" /> {{ $all_post->username }}</h5>
 		<div id="alstatus" style="width: 600px">{{ $all_post->status }}</div>
-		<span style="float: right">{{ $all_post->updated_at }}</span>
+		<span class="caption_date" style="float: right">{{ $all_post->updated_at }}</span>
 	</li>
 	@endforeach
 	</ul>

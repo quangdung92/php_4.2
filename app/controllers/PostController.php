@@ -15,8 +15,8 @@ class PostController extends \BaseController {
 		$all_posts = Post::whereIn('user_id',$followings_id)
 						->orWhere('user_id','=',Auth::id())
 						->join('users as user', 'user.id', '=', 'user_id')
-						->select(array('posts.id','posts.updated_at','posts.status','user.username'))
-						->orderBy('updated_at','desc')
+						->select(array('posts.id','posts.updated_at','posts.status','user.username','user_id'))
+						->orderBy('posts.updated_at','desc')
 						->get();
 		if (Auth::user()) {
 			$posts = User::find(Auth::id())->post()->get();

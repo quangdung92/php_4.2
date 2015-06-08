@@ -111,9 +111,17 @@ class UserController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function avatar()
 	{
-		//
+		$user_id = Request::get("user_id");
+		$image_id = User::find($user_id)->avatar_id;
+		if ($image_id) {
+			$dir = app()->environment();
+			$image = Image::find($image_id);
+			return Response::json(['status'=>'success','dat'=> ['dir'=>$dir, 'image' => $image]]);
+		} else {
+			return Response::json(['status'=>'null']);
+		}
 	}
 
 	/**

@@ -33,7 +33,8 @@ return array(
 					"title"		=> "Télécharger",
 					"input"		=> "Le fichier d'entrée",
 					"button"	=> "Poste",
-					"sucess"	=> "Télécharge complète!"
+					"sucess"	=> "Télécharge complète!",
+					"error"		=> "Quelque chose de mal dans le système, s'il vous plaît ! Télécharger à nouveau ou attendre jusqu'à ce qu'il est réparé"
 					),
 	'profile' => array(
 					"link"		=> "profil",

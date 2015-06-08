@@ -9,7 +9,9 @@
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/foundation.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/foundation.min.css') }}" rel="stylesheet">
-	<link href="{{ asset('/css/form.css') }}" rel="stylesheet">		
+	<link href="{{ asset('/css/form.css') }}" rel="stylesheet">	
+	<link href="{{ asset('/css/style_caption.css') }}" rel="stylesheet">	
+	
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
 
@@ -96,7 +98,9 @@
 	<script src="/javascripts/jquery.validate.js"></script>
 	<script src="/javascripts/register_form.js"></script>
 	<script src="/javascripts/jquery.textcomplete.js"></script>
+	<script src="/javascripts/jquery.emoji.js"></script>
 	<script src="/javascripts/oauth.js"></script>
+	<script src="/javascripts/upload.js"></script>
 	<script src="/javascripts/chat_box.js"></script>
 	<script src="/javascripts/follow.js"></script>
 	<script src="/javascripts/jquery.validate.min.js"></script>

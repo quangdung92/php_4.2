@@ -10,7 +10,8 @@ class ImageController extends \BaseController {
 	 */
 	public function index()
 	{
-		return View::make('upload/image');
+		$images = Auth::user()->image()->get();
+		return View::make('upload/image')->with(array('images'=>$images));
 	}
 
 	/**
@@ -22,11 +23,11 @@ class ImageController extends \BaseController {
 	public function create()
 	{
 		$file = Request::file('photo');
+		if ($file) {
 		$extension = $file->getClientOriginalExtension();
 		$filename = $file->getClientOriginalName();
-		Log::info($file);
 		//Store file
-		$file->move(public_path().'/uploads/', $filename);
+		$file->move(public_path().'/uploads/'.app()->environment().'/'.Auth::id(), $filename);
 		//Insert into DB
 		Image::create([
 			'user_id' => Auth::user()['id'],
@@ -34,8 +35,10 @@ class ImageController extends \BaseController {
 			'mime' => $file->getClientMimeType(),
 			'origilnal_filename' => $file->getClientOriginalName(),
 		]);
-		Log::info($filename);
 		return Redirect::to('upload')->with('msg', Lang::get('messages.upload.sucess'));
+		} else {
+			return Redirect::to('upload')->with('msg', Lang::get('messages.upload.error'));
+		}
 	}
 
 	/**
@@ -48,14 +51,19 @@ class ImageController extends \BaseController {
 	{
 		//
 	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /image/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
+	public function delete()
+	{
+		return Response::json(array('status'=>'deleted'));
+	}
+	
+	public function avatar()
+	{
+		$id = Request::get('image');	
+		User::where('id','=',Auth::id())->update(array('avatar_id' => $id));
+		return Response::json(array('status'=>'success'));
+	}
+	
 	public function show($id)
 	{
 		//

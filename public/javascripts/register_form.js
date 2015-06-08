@@ -87,8 +87,7 @@ $(document).ready(function() {
 				}
 			}
 		});
-	}); 
-	
+	}); 	
 	$('#selecctall').click(function() {
 		if (this.checked) {
 			$('.kid_box').each(function() {

@@ -47,6 +47,7 @@ $(document).ready(function() {
 			return '@' + mention + ' ';
 		}
 	}]); 
+	
 	$('li.description').each(function() {
 		$(this).find('#alstatus').text(function(index,text) {
 			var f_match = text.match(/\B@\w+/g);
@@ -59,6 +60,9 @@ $(document).ready(function() {
 			$(this).html(e_match);
 			};
 		});
+	});
+	$('div#alstatus').each(function(i, d){
+		$(d).emoji();
 	});
 });
 function friendList(){
