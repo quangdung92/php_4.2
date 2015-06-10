@@ -34,20 +34,16 @@ $(document).ready(function() {
 				});
 			});
 		});
-	$('textarea').textcomplete([{
-		mentions : friendList(),
-		match : /\B@(\w*)$/,
-		search : function(term, callback) {
-			callback($.map(this.mentions, function(mention) {
-				return mention.indexOf(term) === 0 ? mention : null;
-			}));
-		},
-		index : 1,
-		replace : function(mention) {
-			return '@' + mention + ' ';
-		}
-	}]); 
-	
+	$('textarea').keypress(function(event) {
+		if (event.which === 64) {
+			$(this).keyup(function() {
+				var search_str = $(this).val().match(/\B@(\w*)$/);
+				if (search_str && search_str[1].length > 0) {
+					AutoComplete(search_str[1]);
+				}
+			});
+		};
+	});	
 	$('li.description').each(function() {
 		$(this).find('#alstatus').text(function(index,text) {
 			var f_match = text.match(/\B@\w+/g);
@@ -65,12 +61,31 @@ $(document).ready(function() {
 		$(d).emoji();
 	});
 });
-function friendList(){
+function AutoComplete(search) {
+		var reg = new RegExp("\\B@("+search+")$");
+		$('textarea').textcomplete([{
+			mentions : friendList(search),
+			match : reg,
+			search : function(term, callback) {
+				callback($.map(this.mentions, function(mention) {
+					return mention.indexOf(term) === 0 ? mention : null;
+				}));
+			},
+			index : 1,
+			replace : function(mention) {
+				return '@' + mention + ' ';
+			}
+		}]); 
+}
+function friendList(search){
 	var result = "";
 	$.ajax({
 		url: "search/user",
 		type: "get",
 		async: false,
+		data : {
+			search : search
+		},
 		success: function(data) {
 			result = data["search_list"];
 		}

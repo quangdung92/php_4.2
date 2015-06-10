@@ -18,7 +18,7 @@
 }
 
 body {
-	background-color: #58c0ff;
+	background-image: url("/assets/bg.jpg");
 	}
 
 .chat-box {
@@ -207,4 +207,12 @@ fieldset img {
 img#img_ava {
 	width: 35px;
 	height: 35px;
+}
+.dropdown-menu {
+	background-color: rgba(255,255,255,0.7)
+}
+.dropdown-menu > li > a {
+	font-family: "Comic Sans MS, cursive, sans-serif";
+	color: #197866;
+	text-transform: capitalize;
 }

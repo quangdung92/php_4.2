@@ -12,13 +12,7 @@ class UserController extends \BaseController {
 	{
 		return View::make('new');
 	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /user/create
-	 *
-	 * @return Response
-	 */
+	
 	public function create()
 	{
 		$all = 	Request::all();
@@ -100,7 +94,8 @@ class UserController extends \BaseController {
 	 */
 	public function search()
 	{
-		$names = Auth::user()->following()->lists('username');
+		$find = Request::get('search');
+		$names = Auth::user()->following()->where('username', 'LIKE', '%'.$find.'%')->lists('username');
 		return Response::json(array('status' => 'success','search_list' => $names));
 	}
 
