@@ -78,7 +78,6 @@ class UserController extends \BaseController {
 		]);
 		Log::info(Auth::user());
 		if ($results){
-			App::make('ChatBoxController')->setchat();
 			return Redirect::to('/post') -> with('msg', Lang::get('messages.login.sucess'));
 		} else {
 			return Redirect::to('/') -> with('msg', Lang::get('messages.login.error'));

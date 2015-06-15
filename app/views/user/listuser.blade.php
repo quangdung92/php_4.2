@@ -8,7 +8,7 @@
 				</li>
 				@foreach ($followings as $following)
 				<li class="description" id="following_box" style="text-align: left">
-					<span id="link_follow" f_id= "{{$following->id}}">{{$following->username}}</span>
+					<h5 id="link_follow" f_id= "{{$following->id}}">{{$following->username}}</h5>
 					<input type="button" id="follow_btn" value="Unfollow" style="float: right"/>
 				</li>
 				@endforeach
@@ -19,7 +19,7 @@
 				</li>
 				@foreach ($followers as $follower)
 				<li class="description" style="text-align: left">
-					<span>{{$follower->username}}</span>
+					<h5>{{$follower->username}}</h5>
 				</li>
 				@endforeach
 			</ul>
@@ -31,7 +31,7 @@
 				</li>
 				@foreach ($all_users as $user)
 				<li class="description" id="follow_box" style="text-align: left">
-					<span>{{$user->username}}</span>
+					<h5>{{$user->username}}</h5>
 					<div class="switch tiny" id="switch_btn">
 					<input id="switch{{$user->id}}" type="checkbox" value="{{$user->id}}">
 					<label for="switch{{$user->id}}" style="float: right"></label>

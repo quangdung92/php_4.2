@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Laravel</title>
-
+	<link rel="shortcut icon" href="/assets/bg.jpg">
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/foundation.css') }}" rel="stylesheet">
 	<link href="{{ asset('/css/foundation.min.css') }}" rel="stylesheet">
@@ -88,9 +88,6 @@
 	</nav>
 	
 	@yield('content')
-	@if (Auth::user())
-		@include('chatbox')
-    @endif
     
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>

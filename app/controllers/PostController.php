@@ -17,7 +17,7 @@ class PostController extends \BaseController {
 						->join('users as user', 'user.id', '=', 'user_id')
 						->select(array('posts.id','posts.updated_at','posts.status','user.username','user_id'))
 						->orderBy('posts.updated_at','desc')
-						->get();
+						->paginate(5);
 		if (Auth::user()) {
 			$posts = User::find(Auth::id())->post()->get();
 			return View::make('post')->with(array('title'=>$title, 'posts'=>$posts, 'all_posts' => $all_posts));
@@ -120,16 +120,19 @@ class PostController extends \BaseController {
 		}
 		$job -> delete();
 	}
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /post/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+	
+	public function send_inbox() {
+		$context = Request::get('context');
+		$address = Request::get('address');
+		$send_id = User::where('username','=',$address)->lists("id");
+		if ($send_id && $context) {
+			$a = User::find(Auth::id());
+			$a->send_inbox()->attach($send_id[0], array('context' => $context));
+			return Response::json(array('status' => 'sended'));
+		}
+	}
 	public function destroy($id)
 	{
 		//
 	}
-
 }

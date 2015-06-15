@@ -17,7 +17,7 @@ $(document).ready(function() {
 		});
 	});
 	$("li#social_post").each(function () {
-		var user_id = $(this).find("img").attr("urs_id");
+		var user_id = $(this).attr("urs_id");
 		var avatar = CheckAva(user_id);
 		if (avatar) {
 			var url = '/uploads/'+avatar.dir+'/'+user_id+'/'+avatar.image.origilnal_filename;

@@ -54,6 +54,8 @@ class ImageController extends \BaseController {
 	
 	public function delete()
 	{
+		$id = Request::get('image');
+		Auth::user()->image()->where('id','=',$id)->delete();
 		return Response::json(array('status'=>'deleted'));
 	}
 	

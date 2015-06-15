@@ -28,7 +28,6 @@ $(document).ready(function() {
 						following_id : id
 					},
 					success :function(data) {
-						console.log(data);
 						location.reload();
 					}
 				});
@@ -57,6 +56,41 @@ $(document).ready(function() {
 			};
 		});
 	});
+	$('li#social_post').each(function() {
+		$(this).on('click','.com_text',function() {
+			var send_name = $(this).text();
+			$("#pop_title span").text(send_name);
+			$(document).find("#overlay").css({"display" : "block"});
+			$(document).find("#pop_box").fadeIn();
+		});
+	});
+	$("#pop_cancel").click(function() {
+		$(document).find("#overlay").css({"display" : "none"});
+		$(document).find("#pop_box").fadeOut();;
+	});
+	
+	$("#pop_send").click(function() {
+		var context = $("#pop_text").val();
+		var address = $("#pop_title span").text();
+		if (context != "") {
+			$.ajax({
+				url: "inbox/send",
+				type: "post",
+				data : {
+					context : context,
+					address : address
+					},
+				async: false,
+				success: function(data) {
+					if (data['status'] == "sended") {
+						$(document).find("#overlay").css({"display" : "none"});
+						$(document).find("#pop_box").fadeOut();;
+					}
+				}
+			});
+		}
+	});
+	
 	$('div#alstatus').each(function(i, d){
 		$(d).emoji();
 	});

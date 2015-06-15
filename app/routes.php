@@ -57,6 +57,9 @@ Route::post('upload/create', array('before'=>'csrf', 'uses'=>'ImageController@cr
 Route::post('image/delete', array('uses' => 'ImageController@delete'));
 Route::post('image/avatar', array('uses' => 'ImageController@avatar'));
 
+//Inbox
+Route::post('inbox/send', array('uses' => 'PostController@send_inbox'));
+
 //Oauth
 Route::get('oauth/twitter','OauthController@twitter');
 Route::get('oauth/facebook','OauthController@facebook');

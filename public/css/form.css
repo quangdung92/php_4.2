@@ -18,9 +18,14 @@
 }
 
 body {
-	background-image: url("/assets/bg.jpg");
+		background-image: url("/assets/bg.jpg");
+		height: 200%;
 	}
-
+body > h1,h2,h3,h4,label {
+		color: white;
+		font-family: "Comic Sans MS, cursive, sans-serif";
+		text-transform: capitalize;
+	}
 .chat-box {
   font:normal normal 11px/1.4 Tahoma,Verdana,Sans-Serif;
   color: #333;
@@ -79,29 +84,29 @@ body {
 .chat-box > input[type="checkbox"]:checked ~ .chat-box-content {display:block}
 
 
-.description {
+.pricing-table > .description {
 	font-family: "Comic Sans MS, cursive, sans-serif";
+	background-color: rgba(38,38,38,0.8);
+	overflow: auto;
 }
 
-.description > div,span {
+.description > div,h5 {
 	font-size: 1rem;
 	text-transform: capitalize;
 	white-space: normal;
-	color: #761C28;
+	color: white;
 }
 div#alstatus {
-	overflow:auto;
 	white-space: normal;
 }
 .pricing-table{
-	border: 0px dotted;
+	border: 0px;
 }
 .pricing-table .title {
 	font-family: "Comic Sans MS, cursive, sans-serif";
-	color: #761C28;
-	background-color: #00FFFF;
+	color: #262626;
+	background-color: rgba(240,248,255,0.65);
 	border: 0px;
-	border-radius: 10px 10px 0px 0px; 
 	padding-top: 5px;
 	padding-bottom: 5px
 }
@@ -124,7 +129,7 @@ div#alstatus {
 
 #follow_btn {
 	background-color: #00FFFF;
-	color: #761C28;
+	color: white;
 	border: 1px dotted;
 	border-radius: 5px 5px;
 	height: 20px;
@@ -143,6 +148,8 @@ div#alstatus {
 textarea#status {
 	width: 700px;
 	height:60px;
+	color:white;
+	background-color: rgba(255,255,255,0.3);
 	border:1px solid #3366FF;
 	border-left: 25px solid #3366FF;
 }
@@ -150,12 +157,12 @@ textarea#status {
 	margin-top: 50px;
 	border-radius: 0px 0px;
 }
-div[class="medium-4 medium-left columns"] h2 {
+div[class="medium-4 medium-left columns"] h1 {
 	font-family: "Comic Sans MS, cursive, sans-serif";
 	color: white;
 }
 span.com_text {
-	color: #1a6181;
+	color: #26b4d1;
 	font-family: "Arial", Georgia, Serif;
 	cursor:pointer;
 }
@@ -216,3 +223,53 @@ img#img_ava {
 	color: #197866;
 	text-transform: capitalize;
 }
+.pagination > li >a  {
+	border: 2px solid white;
+}
+.pagination {
+	float: right;
+}
+#posts {
+	max-height: 500px;
+	overflow: auto;
+}
+#pop_box {
+	background-color: rgba(240,248,255,0.65);
+	vertical-align: middle;
+}
+
+div#pop_title > h4 {
+	color: black;
+}
+#pop_title {
+	margin-bottom: 20px;
+}
+#pop_text {
+	height:75px;
+}
+
+#overlay {
+    display:none;    
+    position:fixed;  
+    left:0px;        
+    top:0px;         
+    width:100%;      
+    height:100%;     
+    background:#000; 
+    opacity:0.5;     
+    z-index: 1;   
+}
+#pop_box {
+    display:none;
+    position:fixed;
+    left:50%;        
+    top:50%;         
+    width:400px;     
+    height:200px;
+    margin-top:-75px;
+    margin-left:-150px;
+    background:#FFFFFF;
+    border:2px solid #000;
+    z-index: 2;   
+       
+
